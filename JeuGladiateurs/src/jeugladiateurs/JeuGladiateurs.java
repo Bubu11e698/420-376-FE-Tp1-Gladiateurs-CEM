@@ -14,24 +14,25 @@ public class JeuGladiateurs {
     // <editor-fold defaultstate="expanded" desc="Instanciation des objets">
     CompteurDeTour tour = new CompteurDeTour();
     AffichageEcran affichage = new AffichageEcran();
-    Personnage Bob = new Personnage();
-    Personnage Igor = new Personnage();
+    Personnage Bob = new Personnage("Bob le malchanceux", 15, 15, 70, 15);
+    Personnage Igor = new Personnage("Igor l'empaleur", 25, 5, 100, 30);
     // </editor-fold>
 
     // **************************************************************************
     // **************************************************************************
     // **************************************************************************
-    // <editor-fold defaultstate="collapsed" desc="Affichage pr√©-combat">
-    // TODO : Afficher les infos de chaque personnage
-    // TODO : Afficher le message du d√©but du combat
+    // <editor-fold defaultstate="collapsed" desc="Affichage prÈ-combat">
+    Bob.afficherInfosPersonnage();
+    Igor.afficherInfosPersonnage();
+    affichage.afficherDebutCombat();
     // </editor-fold>
-
+  
     // **************************************************************************
     // **************************************************************************
     // **************************************************************************
-    // <editor-fold defaultstate="collapsed" desc="M√©canique de combat">
-    // TODO : La boucle contenant les √©tapes du combat
-    // TODO : Apr√®s la boucle, afficher le r√©sultat du combat
+    // <editor-fold defaultstate="collapsed" desc="MÈcanique de combat">
+    // TODO : La boucle contenant les Ètapes du combat
+    // TODO : AprËs la boucle, afficher le rÈsultat du combat
     // </editor-fold>
     }
 
