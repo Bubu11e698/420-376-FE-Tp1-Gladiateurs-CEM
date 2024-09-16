@@ -86,12 +86,12 @@ public class Personnage {
     public void afficherInfosPersonnage() {
         System.out.println("\n");
         System.out.println(nomPersonnage);
-        System.out.println("Attaque : " + valeurMaxAttaque);
-        System.out.println("Défense : " + valeurDefense);
-        System.out.println("Points de vie : " + ptsDeVie);
-        System.out.println("Initiative : " + initiative);
+        System.out.println("    Attaque : " + valeurMaxAttaque);
+        System.out.println("    Défense : " + valeurDefense);
+        System.out.println("    Points de vie : " + ptsDeVie);
+        System.out.println("    Initiative : " + initiative);
         if (ptsDeVie > 0 ) {
-              System.out.println("Statut : Vivant " );
+              System.out.println("    Statut : Vivant " );
         }
         else 
         {
@@ -100,15 +100,31 @@ public class Personnage {
     }
 
     private int attaqueCalcul() {
-        // TODO : Retourner la valeur de l'attaque du personnage.
+         int rand = (int)(Math.random()*(valeurMaxAttaque - 1));
         // Cette valeur est trouvée aléatoirement et doit se situer entre ZÉRO et valeurMaxAttaque.
-        return 0;
+        return rand;
     }
 
     public void frapperPersonnage(Personnage personnageCible) {
-        // TODO : Récupérer la valeur d'attaque pour ce tour, calculer les dégats,
-        //modifier les points de vie du personnage cible, afficher les détails
-        // sur l'attaque, tel que montré dans l'énoncé.
+        int attaque = attaqueCalcul();
+        System.out.println("\n");
+         System.out.println(nomPersonnage + " attaque avec une puissance de : " + attaque);
+         System.out.println(personnageCible.nomPersonnage + " a une défense de : " + valeurDefense);
+        attaque = attaque - personnageCible.valeurDefense;
+        
+        if (attaque < 0) {
+            attaque = 0;
+        }
+        
+        System.out.println("Les dommages sont donc de :" + attaque);
+        
+        personnageCible.ptsDeVie -= attaque;
+        
+        if (personnageCible.ptsDeVie < 0) {
+            personnageCible.ptsDeVie = 0;
+        }
+        
+       
     }
 
     public void setNewInitiativeRandom() {
