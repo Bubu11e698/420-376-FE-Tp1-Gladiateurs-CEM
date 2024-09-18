@@ -98,8 +98,12 @@ public class Personnage {
                System.out.println("Statut : Mort" );  
         }
     }
+    
+    public void setNewInitiativeRandom() {
+        initiative  = (int)(Math.random()*(initiative - 1));
+    }
 
-    private int attaqueCalcul() {
+    protected int attaqueCalcul() {
          int rand = (int)(Math.random()*(valeurMaxAttaque - 1));
         // Cette valeur est trouvée aléatoirement et doit se situer entre ZÉRO et valeurMaxAttaque.
         return rand;
@@ -109,8 +113,8 @@ public class Personnage {
         int attaque = attaqueCalcul();
         System.out.println("\n");
          System.out.println(nomPersonnage + " attaque avec une puissance de : " + attaque);
-         System.out.println(personnageCible.nomPersonnage + " a une défense de : " + valeurDefense);
-        attaque = attaque - personnageCible.valeurDefense;
+         System.out.println(personnageCible.getNomPersonnage() + " a une défense de : " + personnageCible.getValeurDefense());
+        attaque = attaque - personnageCible.getValeurDefense();
         
         if (attaque < 0) {
             attaque = 0;
@@ -120,16 +124,13 @@ public class Personnage {
         
         personnageCible.ptsDeVie -= attaque;
         
-        if (personnageCible.ptsDeVie < 0) {
-            personnageCible.ptsDeVie = 0;
+        if (personnageCible.getPtsDeVie() < 0) {
+            personnageCible.setPtsDeVie(0);
         }
         
        
     }
 
-    public void setNewInitiativeRandom() {
-        initiative  = (int)(Math.random()*(100 - 1));
-    }
     // </editor-fold>
     
     

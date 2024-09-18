@@ -30,7 +30,15 @@ public class AffichageEcran {
     }
 
     public void afficheVictoire(Personnage personnage1, Personnage personnage2) {
-        // TODO : Afficher le gagnant du combat, tel que montré dans l'énoncé
+        if (personnage1.ptsDeVie == 0) {
+            System.out.println("\n");
+            System.out.println(personnage2.nomPersonnage + " gagne le combat");
+            System.out.println("\n");
+        }else if (personnage2.ptsDeVie == 0) {
+            System.out.println("\n");
+            System.out.println(personnage1.nomPersonnage + " gagne le combat");
+            System.out.println("\n");
+        }
     }
     // </editor-fold>
 }
